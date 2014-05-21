@@ -1,0 +1,40 @@
+<div id="user-bar" class="row-fluid">
+    <div class="btn-group no-border-radius">
+        {% if tasks %}
+            <a class="btn" data-toggle="dropdown" href="#"
+               rel="tooltip" data-placement="left" data-original-title="Role Tasks!"><b class="icon-cog-my"></b></a>
+            <ul class="dropdown-menu">
+                {% for role in tasks %}
+                    <li class="dropdown-submenu">
+                        <a tabindex="-1" href="#">{{ role.name }}</a>
+                        <ul class="dropdown-menu">
+                            {% for action in role.actions %}
+                                <li><a href="{{ path(action.route) }}">
+                                    <i class="{{ action.icon }}"></i> {{ action.name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                {% endfor %}
+                <li class="divider"></li>
+                <li><a href="{{ path('log') }}">
+                    <i class="icon-list"></i> Logs</a></li>
+            </ul>
+        {% endif %}
+        <a id="profile" class="btn btn-primary" href="{{ path('uNew') }}">
+            <div class="row-fluid" rel="tooltip" data-placement="bottom" data-original-title="Profile!">
+                <div class="top-info-block">
+                    <h3>{{ user.name }}</h3>
+                    <h4>{{ user.email }}</h4>
+                </div>
+                <div class="top-info-block">
+                    <b class="icon-user-tie-my"></b>
+                </div>
+            </div>
+        </a>
+
+        <a id="logout" class="btn btn-warning" href="{{ path('uBar',{'logout':'true'}) }}"
+           rel="tooltip" data-placement="bottom" data-original-title="Logout!">
+        <b class="icon-power-my"></b>
+        </a>
+    </div>
+</div>

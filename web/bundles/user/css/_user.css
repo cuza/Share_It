@@ -1,0 +1,131 @@
+#user-bar {
+    display: block;
+    color: #444444;
+}
+
+#user-bar a[id*=''] {
+    display: inline-block;
+    height: 46px;
+    color: #fff;
+}
+
+#user-bar a[id*='']a:hover {
+    color: #eAeAeA;
+}
+
+.top-info-block {
+    display: block;
+    float: left;
+    margin-left: 8px;
+}
+
+#user-bar b {
+    display: inline-block;
+    font-size: 38px;
+    height: 46px;
+    line-height: 46px;
+    vertical-align: top;
+    width: 46px;
+    text-align: center;
+}
+
+#user-bar hr.separator {
+    background-color: #7B7B7B;
+    border: 0 none;
+    display: inline-block;
+    height: 42px;
+    margin: 2px 10px;
+    padding: 0;
+    vertical-align: top;
+    width: 1px;
+}
+
+#user-bar h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+#user-bar h3, .win-type-large {
+    text-align: left;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 26px;
+}
+
+#user-bar h4 {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+}
+
+.icon-power-my {
+    background: url("../images/power.png") center;
+    background-size: 70px;
+}
+
+.icon-user-my {
+    background: url("../images/user.png") center;
+    background-size: 70px;
+}
+
+.icon-user-tie-my {
+    background: url("../images/user.tie.png") center;
+    background-size: 70px;
+}
+
+.icon-cog-my {
+    background: url("../images/cog.png") center;
+    background-size: 60px;
+}
+
+.icon-upload-my {
+    background: url("../images/upload.png") center;
+    background-size: 140px
+}
+
+.icon-download-my {
+    background: url("../images/download.png") center;
+    background-size: 140px
+}
+
+#_user-bar {
+    margin: 5px;
+}
+
+.no-border-radius {
+    border-radius: 0 !important;
+}
+
+.no-margin {
+    margin: 0;
+}
+
+.main {
+    min-height: 400px;
+}
+
+.footer {
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 70px;
+    border-top: 1px solid #E5E5E5;
+    background-color: whiteSmoke;
+}
+
+.footer p {
+    margin-bottom: 0;
+    color: #777;
+}
+
+.footer-links {
+    margin: 10px 0;
+}
+
+.footer-links li {
+    display: inline;
+    padding: 0 2px;
+}
+
+.footer-links li:first-child {
+    padding-left: 0;
+}

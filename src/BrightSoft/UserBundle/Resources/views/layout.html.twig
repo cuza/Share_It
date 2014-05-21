@@ -1,0 +1,41 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+<div class="container">
+    <header class="row">
+        <h1 class="pull-left">
+            <i class="icon-cog-my"></i> {% block title 'UserBar Management' %}
+        </h1>
+
+        <div class="pull-right">
+            {% render "UserBundle:UserBar:uBar" %}
+        </div>
+    </header>
+    <section class="row">
+        {% block content %}
+
+        {% endblock %}
+    </section>
+    <div class="row-fluid">
+        <footer id="footer">
+            <p><a href="#"><abbr title="(BrightSoft)User Bar" class="initialism">uBar</abbr></a> licensed under <a
+                    href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+            <ul class="footer-links">
+                <li><a href="http://blog.getbootstrap.com">Blog</a></li>
+                <li class="muted">·</li>
+                <li><a href="https://github.com/twitter/bootstrap/issues?state=open">Issues</a></li>
+                <li class="muted">·</li>
+                <li><a href="https://github.com/twitter/bootstrap/wiki">Roadmap and changelog</a></li>
+            </ul>
+        </footer>
+    </div>
+</div>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/user/css/backend.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('google-code-prettify/prettify.css') }}">
+    <script type="text/javascript" src="{{ asset('google-code-prettify/prettify.js') }}"></script>
+{% endblock %}
+

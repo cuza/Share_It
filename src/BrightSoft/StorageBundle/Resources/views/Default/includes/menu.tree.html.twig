@@ -1,0 +1,41 @@
+<div id="menu-modal" class="modal hide fade" tabindex="-1" role="dialog">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <h3 id="myModalLabel">Menu Action</h3>
+    </div>
+    <div class="alert alert-block alert-error fade in hide">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <h4 class="alert-heading">Error!</h4>
+        <p>Something went wrong.</p>
+    </div>
+    <div id="_util" class="modal-body"></div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    </div>
+</div>
+
+<ul id="folder-menu" class="context-menu dropdown-menu">
+    <li><a href="{{ path('folder_upload',{'id':''}) }}"><i class="cus-page-white-get"></i> Upload Files</a></li>
+    <li><a href="{{ path('folder_upload_url',{'id':''}) }}"><i class="cus-link"></i> Upload from url</a></li>
+    {#<li><a href="#"><i class="cus-compress"></i> Download Zip</a></li>#}
+    <li class="divider"></li>
+    <li><a href="{{ path('folder_delete',{'id':''}) }}"><i class="cus-folder-delete"></i> Delete</a></li>
+    <li><a href="{{ path('folder_create',{'id':''}) }}"><i class="cus-folder-add"></i> New Folder</a></li>
+    <li><a href="{{ path('folder_rename',{'id':''}) }}"><i class="cus-textfield-rename"></i> Rename</a></li>
+    <li class="divider"></li>
+    <li><a href="{{ path('folder_prop',{'id':''}) }}"> Properties</a></li>
+</ul>
+
+<ul id="file-menu" class="context-menu dropdown-menu">
+    <li><a data-menu="go" href="{{ path('download_file',{'id':'','slug':''}) }}"><i class="cus-page-white-put"></i> Download</a></li>
+    {#<li><a href="#"><i class="cus-compress"></i> Download Zip</a></li>#}
+    <li class="divider"></li>
+    <li><a data-menu="true" href="{{ path('file_link',{'id':''}) }}"><i class="icon-list"></i> Get Links</a></li>
+    <li class="divider"></li>
+    {#<li><a href="#"><i class="cus-cut"></i> Cut</a></li>#}
+    {#<li><a href="#"><i class="cus-page-copy"></i> Copy</a></li>#}
+    {#<li data-bind="visible: clipB().length>0"><a href="#"><i class="cus-page-paste"></i> Paste</a></li>#}
+    <li><a data-menu="true" href="{{ path('file_rename',{'id':''}) }}"><i class="cus-textfield-rename"></i> Rename</a></li>
+    <li class="divider"></li>
+    <li><a data-menu="true" href="{{ path('file_prop',{'id':''}) }}"> Properties</a></li>
+</ul>

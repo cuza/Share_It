@@ -1,0 +1,55 @@
+{% extends 'UserBundle::layout.html.twig' %}
+
+{% block content %}
+    <div class="span5">
+        <h1>Task</h1>
+
+        <table class="table table-condensed table-striped table-hover table-bordered">
+            <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ entity.name }}</td>
+            </tr>
+            <tr>
+                <th>Route</th>
+                <td>{{ entity.route }}</td>
+            </tr>
+            <tr>
+                <th>Slug</th>
+                <td>{{ entity.slug }}</td>
+            </tr>
+            <tr>
+                <th>Icon</th>
+                <td>{{ entity.icon }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="span2">
+
+        <ul class="record_actions">
+            <li>
+                <a href="{{ path('task') }}">
+                    <i class="icon-list" style="color: #000"></i> Back to the list
+                </a>
+            </li>
+            <li>
+                <a href="{{ path('task_edit', { 'id': entity.id }) }}">
+                    <i class="icon-edit" style="color: #000"></i> Edit
+                </a>
+            </li>
+            <li>
+                <form action="{{ path('task_delete', { 'id': entity.id }) }}" method="post">
+                    {{ form_widget(delete_form) }}
+                    <button class="btn btn-small btn-danger" type="submit">
+                        <i class="icon-remove icon-white"></i> Delete
+                    </button>
+                </form>
+            </li>
+        </ul>
+    </div>
+{% endblock %}

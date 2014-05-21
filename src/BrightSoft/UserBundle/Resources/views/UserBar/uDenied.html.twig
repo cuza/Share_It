@@ -1,0 +1,20 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row error">
+            <h1><i class="imoon-denied"></i> Access Denied!!!</h1>
+        </div>
+        <div class="row error well well-large">
+            {% render "UserBundle:UserBar:uBar" %}
+        </div>
+        <div class="row error">
+            <h2>Please Login and <a href="{{ path(route) }}">try again</a></h2>
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/user/css/backend.css') }}">
+{% endblock %}

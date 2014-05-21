@@ -1,0 +1,37 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <header class="row-fluid">
+            <h1 class="pull-left">
+                <i class="icon-title-my"></i> {% block title 'Share.it' %}
+            </h1>
+
+            <div class="pull-right">
+                {% render "UserBundle:UserBar:uBar" %}
+            </div>
+        </header>
+        <section class="row-fluid">
+            {% block content %}
+
+            {% endblock %}
+        </section>
+    </div>
+    <footer id="footer" class="row-fluid">
+        <p><a href="http://glyphicons.com">Glyphicons Free</a> licensed under <a
+                href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+        <ul class="footer-links">
+            <li><a href="http://blog.getbootstrap.com">Blog</a></li>
+            <li class="muted">·</li>
+            <li><a href="https://github.com/twitter/bootstrap/issues?state=open">Issues</a></li>
+            <li class="muted">·</li>
+            <li><a href="https://github.com/twitter/bootstrap/wiki">Roadmap and changelog</a></li>
+        </ul>
+    </footer>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/storage/css/storage.css') }}">
+{% endblock %}
+

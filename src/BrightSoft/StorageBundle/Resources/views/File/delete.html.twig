@@ -1,0 +1,7 @@
+<!-- modal form -->
+<form action="{{ path('folder_delete',{'id':entity.id}) }}" method="post" class="form-inline">
+    <h3 class="pull-left">Are you sure?</h3>
+    <input type="hidden" name="delete" value="true">
+    <button class="btn btn-danger pull-right" type="submit"><i class="cus-folder-delete"></i> Delete</button>
+</form>
+<input type="hidden" id="_storage_url" value="{{ path('storage') }}"/>

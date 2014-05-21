@@ -1,0 +1,7 @@
+<!-- modal form -->
+<form action="{{ path('file_rename',{'id':entity.id}) }}" method="post" class="form-inline">
+    <label class="control-label" for="name">New Name</label>
+    <input type="text" name="name" placeholder="New Name" value="{{ entity.name }}">
+    <button class="btn btn-primary" type="submit"><i class="cus-textfield-rename"></i> Rename</button>
+</form>
+<input type="hidden" id="_storage_url" value="{{ path('storage') }}"/>

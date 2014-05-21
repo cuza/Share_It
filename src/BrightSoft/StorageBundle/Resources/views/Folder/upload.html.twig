@@ -1,0 +1,32 @@
+<!-- modal form -->
+<form action="{{ path('folder_upload',{'id':entity.id}) }}" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="_storage_url" id="_storage_url" value="{{ path('storage') }}"/>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>File Name:</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody id="upload-files"></tbody>
+    </table>
+    <a onclick="addFile()"><i class="icon-plus"></i> Add File</a>
+    <button class="btn btn-primary pull-right" type="submit"><i class="icon-upload"></i>
+        Upload
+    </button>
+</form>
+<script type="text/javascript">
+    var upl_count = 0;
+    var upl = $('#upload-files');
+    function addFile() {
+        upl_count++;
+        upl.append('<tr id="upl_' + upl_count + '">' +
+                '<td><input name="upl_name_' + upl_count +'" type="file" class="required"/></td>' +
+                '<td><a href="#" onclick="removeFile(' + upl_count + ')"><i class="icon-remove"></i> Delete</a></td>' +
+                '</tr>')
+    }
+    function removeFile(id) {
+        $('#upl_' + id).html('');
+    }
+    addFile();
+</script>

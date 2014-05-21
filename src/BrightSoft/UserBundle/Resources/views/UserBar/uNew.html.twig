@@ -1,0 +1,55 @@
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">User Account</h3>
+    </div>
+    <form id="_create" method="post" action="{{ path('uNew') }}" class="no-margin">
+        <div class="modal-body">
+            <div id="modal-error" class="alert alert-block alert-error fade in hide">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <h4 class="alert-heading">Error!</h4>
+                <p>Something went wrong.</p>
+                {% if user.error and user.error['email'] %}
+                    <p><strong>Email: </strong>"This Email is Invalid or Taken!"</p>
+                {% endif %}
+                {% if user.error and user.error['name'] %}
+                    <p><strong>User Name: </strong>"This User Name is Invalid or Taken!"</p>
+                {% endif %}
+                {% if user.error and user.error['pass'] %}
+                    <p><strong>Password: </strong>"This Password is Invalid!"</p>
+                {% endif %}
+            </div>
+            <input type="hidden" name="id" value="{{ user.id }}"/>
+
+            <div class="control-group  {% if user.error and user.error['email'] %}error{% endif %}">
+                <div class="controls input-prepend">
+                    <span class="add-on"><i class="icon-envelope"></i></span>
+                    <input name="email" type="email" placeholder="Email" required="true" value="{{ user.email }}">
+                </div>
+            </div>
+            <div class="control-group  {% if user.error and user.error['name'] %}error{% endif %}">
+                <div class="controls input-prepend">
+                    <span class="add-on"><i class="icon-user"></i></span>
+                    <input name="name" type="text" placeholder="User Name" value="{{ user.name }}" required="true">
+                </div>
+            </div>
+            <div class="control-group  {% if user.error and user.error['pass'] %}error{% endif %}">
+                <div class="controls input-prepend">
+                    <span class="add-on"><i class="icon-lock"></i></span>
+                    <input name="pass" type="password" placeholder="Password"
+                           {% if user.id <= 0 %}required="true"{% endif %}>
+                </div>
+            </div>
+            <input type="hidden" name="_target_path" id="_target_path" value="{{ _target }}"/>
+            <input type="hidden" name="_target_url" id="_target_url" value="{{ path(_target) }}"/>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-primary pull-right"
+                    rel="tooltip" data-placement="top" data-original-title="Submit!">
+                <i class="icon-ok icon-white"></i>
+                Submit
+            </button>
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        </div>
+    </form>
+</div>

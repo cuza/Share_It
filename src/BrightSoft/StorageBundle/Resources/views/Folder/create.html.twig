@@ -1,0 +1,6 @@
+<!-- modal form -->
+<form action="{{ path('folder_create',{'id':entity.id}) }}" method="post" class="form-inline">
+    <input type="text" name="name" placeholder="Folder Name">
+    <button class="btn btn-primary" type="submit"><i class="cus-folder-add"></i> Create</button>
+</form>
+<input type="hidden" id="_storage_url" value="{{ path('storage') }}"/>

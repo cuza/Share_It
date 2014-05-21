@@ -1,0 +1,156 @@
+{% extends 'StorageBundle::layout.html.twig' %}
+
+{% block content %}
+    {% if msg %}
+        <div class="alert alert-info fade in out">
+            <button type="button" class="close" data-dismiss="alert">x</button>
+            <h4 class="alert-heading">Message!</h4>
+
+            <p>{{ msg|raw }}</p>
+        </div>
+    {% endif %}
+    <div id="search" class="row-fluid">
+        <div class=" span8 offset2">
+            {% include 'StorageBundle:Default:includes/searchbox.html.twig' %}
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div id="toolbar" class="row well well-small">
+            <ul class="breadcrumb" style="margin: 0;padding: 0">
+                <li><a href="{{ path('index') }}">ShareIt.Now</a>  <span class="divider">/</span></li>
+                <span data-bind="foreach: bc">
+                    <li><a href="#" data-bind="attr:{'data-id': id},text: name,click: $root.load"></a> <span class="divider">/</span></li>
+                </span>
+                <li class="active" data-bind="text: bc_last().name"></li>
+            </ul>
+        </div>
+        <div id="workspace" class="row">
+            {% include 'StorageBundle:Default:includes/folder.tree.html.twig' %}
+
+            <div id="file-browser" class="span9 row">
+                {% include 'StorageBundle:Default:includes/menu.tree.html.twig' %}
+                {#<div id="file-tools" class="row btn-toolbar">#}
+                    {#<div class="btn-group">#}
+                        {#<button class="btn"><i class="cus-arrow-down"></i></button>#}
+                        {#<button class="btn"><i class="cus-arrow-up"></i></button>#}
+                        {#<button class="btn"><i class="cus-compress"></i></button>#}
+                    {#</div>#}
+                    {#<div class="btn-group pull-right">#}
+                        {#<button class="btn">1</button>#}
+                        {#<button class="btn">2</button>#}
+                        {#<button class="btn">3</button>#}
+                    {#</div>#}
+                {#</div>#}
+                <div id="file-table" class="row">
+                    <table class="table table-condensed table-striped table-hover table-bordered">
+                        <thead>
+                        <tr>
+                            {#<th><input type="checkbox" class="checkFiles"></th>#}
+                            <th>Name</th>
+                            <th>Size</th>
+                            <th>Modified</th>
+                        </tr>
+                        </thead>
+                        <tbody id="file-table" data-bind='foreach: {data: files, afterAdd: showFile}'>
+                        <tr class="file" data-context-menu="#file-menu"
+                            data-bind='css: {"muted": _modified()}, attr: {"data-id": id}'>
+                            {#<td class="file-check"><input type="checkbox" class="checkFiles"></td>#}
+                            <td class="file-name" data-bind='css: _css()'>
+                                <span class="name" data-bind='text: fullName'></span>
+                                <a href="#" class="pull-right" data-bind='click: $root.removeFile'><i
+                                        class="icon-trash" rel="tooltip" data-placement="top" data-original-title="Delete!"></i></a>
+                                <a href="#" class="pull-right">
+                                    <i data-bind="click: toggleShare,css: {'cus-link': shared(), 'cus-link-break': !shared()}" rel="tooltip" data-placement="top" data-original-title="Share!"></i>
+                                </a>
+                            </td>
+                            <td class="file-size" data-bind='text: size'></td>
+                            <td class="file-mod" data-bind='text: mDate'></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row-fluid add-senses">
+        Advertisement
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('bundles/storage/js/bootstrap-tree.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/storage/js/bootstrap-contextmenu.js') }}"></script>
+    <script type="text/javascript">
+        function File(id, name, ext, size, mDate, shared, icon) {
+            var self = this;
+            self._modified = ko.observable(false);
+            self.id = ko.observable(id);
+            self.name = ko.observable(name);
+            self.ext = ko.observable(ext);
+            self.size = ko.observable(size);
+            self.mDate = ko.observable(mDate);
+            self.shared = ko.observable(shared);
+            self.icon = ko.observable(icon);
+            self.fullName = ko.computed(function () {
+                return this.name() + "." + this.ext();
+            }, this);
+            self._css = ko.computed(function () {
+                var css = {};
+                css[this.icon() + '-ext'] = true;
+                return css;
+            }, this);
+            self.toggleShare = function () {
+                self._modified(true);
+                $.get("{{ path('file_share',{'id':''}) }}/" + self.id(), function (data) {
+                    self.shared(data);
+                    self._modified(false);
+                });
+            }
+        }
+        function FileViewModel() {
+            var self = this;
+            self.bc = ko.observableArray();
+            self.bc_last = ko.observable();
+            self.clipB = ko.observableArray();
+            self.files = ko.observableArray();
+            self.removeFile = function (file) {
+                file._modified(true);
+                $.get("{{ path('file_delete',{'id':''}) }}/" + file.id(), function (data) {
+                    self.files.remove(file);
+                });
+            };
+            self.selFolder = "";
+            this.showFile = function (file) {
+                if (file.nodeType === 1) {
+                    $(file).hide().fadeIn();
+                    $(file).contextmenu();
+                    $('[rel="tooltip"]').tooltip();
+                }
+            };
+            self.load = function (m, e) {
+                $('#file-table').addClass('muted');
+                if (e) self.selFolder = ((e.target.localName == 'i') ? e.target.parentNode : e.target).attributes.getNamedItem('data-id').nodeValue;
+                else self.selFolder = m;
+                self.files.removeAll();
+                self.bc.removeAll();
+                self.bc_last('');
+                $.get('{{ path('folder_files',{'id':''}) }}' + "/" + self.selFolder, function (data) {
+                    for (var i in data.files)
+                        self.files.push(new File(data.files[i].id, data.files[i].name, data.files[i].ext, data.files[i].size, data.files[i].mDate, data.files[i].shared, data.files[i].icon));
+                    for (var i in data.bc)
+                        self.bc.push({name:data.bc[i].name, id:data.bc[i].id});
+                    self.bc_last({name:data.bc_last.name, id:data.bc_last.id});
+                    $('#file-table').removeClass('muted');
+                });
+            };
+            self.load('{{ tree.id }}');
+        }
+        ko.applyBindings(new FileViewModel());
+    </script>
+{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/storage/css/bootstrap-tree.css') }}">
+{% endblock %}

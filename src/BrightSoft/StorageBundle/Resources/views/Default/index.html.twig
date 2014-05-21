@@ -1,0 +1,97 @@
+{% extends 'StorageBundle::layout.html.twig' %}
+
+{% block content %}
+    {% if msg %}
+        <div class="alert alert-info fade in out">
+            <button type="button" class="close" data-dismiss="alert">x</button>
+            <h4 class="alert-heading">Message!</h4>
+
+            <p>{{ msg|raw }}</p>
+        </div>
+    {% endif %}
+    <div class="row-fluid">
+        <div class="span7">
+            <span class="t2">Find out what other people are sharing…</span>
+            {% include 'StorageBundle:Default:includes/searchbox.html.twig' %}
+            <form action="{{ path('_upload') }}" name="uploadForm" id="uploadForm" enctype="multipart/form-data"
+                  method="POST">
+                <div class="uploader" data-element="1">
+                    <div id="fff">
+                        <input id="fff_" name="fff_" class="fakefile" multiple="multiple" type="file">
+                    </div>
+                    <div class="row-fluid">
+                        <div class="span8 offset1 text-warning">
+                            <div style="display: inline;"
+                                 class="drag">Drop your files here to
+                            </div>
+                            <div style="display: none;" class="click">Click here to</div>
+                        </div>
+                        <div class="span5 offset2">
+                            <span class="up">Upload</span>
+                        </div>
+                        <div class="span2">
+                            <b class="icon-upload-my pull-left"
+                               style="height: 100px;width: 100px;margin-top: -40px;"></b>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="span5 add-senses">
+
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div id="myCarousel" class="carousel slide">
+            <div class="carousel-inner">
+                <div class="active item">
+                    <div class="carousel-item">
+
+                    </div>
+                    <div class="carousel-caption">
+                        <h4>Third Thumbnail label</h4>
+
+                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
+                            gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="carousel-item">
+
+                    </div>
+                    <div class="carousel-caption">
+                        <h4>Third Thumbnail label</h4>
+
+                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
+                            gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="carousel-item">
+
+                    </div>
+                    <div class="carousel-caption">
+                        <h4>Third Thumbnail label</h4>
+
+                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
+                            gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Carousel nav -->
+            <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+            <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript">
+        $('#fff_').change(function (e) {
+            var f = $('#fff_')[0].files;
+            if (f.length)$("#uploadForm").submit();
+        });
+    </script>
+{% endblock %}

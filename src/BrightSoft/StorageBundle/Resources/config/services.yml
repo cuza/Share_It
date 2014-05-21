@@ -1,0 +1,15 @@
+services:
+  create.listener:
+    class: BrightSoft\StorageBundle\Listener\UserListener
+    tags:
+      - { name: doctrine.event_listener , event: postPersist }
+
+  update.listener:
+    class: BrightSoft\StorageBundle\Listener\UserListener
+    tags:
+      - { name: doctrine.event_listener , event: postUpdate }
+
+  delete.listener:
+    class: BrightSoft\StorageBundle\Listener\UserListener
+    tags:
+      - { name: doctrine.event_listener , event: preRemove }

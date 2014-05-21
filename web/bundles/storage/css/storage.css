@@ -1,0 +1,290 @@
+.record_actions li {
+    margin-bottom: 5px;
+}
+
+.icon-title-my {
+    background: url("../../../apple-touch-icon.png") bottom;
+    background-size: 60px;
+    margin-top: -10px;
+}
+
+header{
+    margin-top: 20px;
+    border-bottom: 4px dotted #777;
+}
+
+header h1 {
+    font-size: 30px;
+    line-height: 1;
+    letter-spacing: -2px;
+    color: #08C;
+    margin-top: 20px;
+}
+
+header h1 i {
+    height: 60px !important;
+    width: 60px !important;
+}
+
+#footer {
+    height: 200px;
+}
+
+#footer {
+    text-align: center;
+    border-top: 1px solid #AAA;
+    background-color: whiteSmoke;
+}
+
+#footer p {
+    color: #777;
+}
+
+#footer-links {
+    margin: 10px 0;
+}
+
+#footer-links li {
+    display: inline;
+    padding: 0 2px;
+}
+
+#footer-links li:first-child {
+    padding-left: 0;
+}
+
+.blueBox {
+    padding-top: 20px
+}
+
+.blueBox.signed .lbox {
+    width: 100%;
+}
+
+.searchbox {
+    padding: 0 0 0 1px;
+    z-index: 100;
+}
+
+.searchbox .t2 {
+    padding-bottom: 16px;
+    display: block;
+}
+
+.searchbox input {
+    width: 85%;
+}
+
+.searchbox input:focus {
+    outline: medium none;
+}
+
+.searchbox #search {
+    margin-bottom: -5px !important;
+}
+
+.searchbox .cfilter {
+    clear: both;
+    padding-top: 6px;
+    margin-left: 5px;
+    margin-bottom: 10px;
+    height: 1%;
+}
+
+.searchbox .cfilter a {
+    background: url("../images/filter-type.png") no-repeat scroll 0 0 transparent;
+    padding: 2px 0 1px 26px;
+    margin-right: 2px;
+    color: rgb(58, 83, 105);
+    height: 18px;
+    text-decoration: none;
+    float: left;
+}
+
+.searchbox .cfilter a.clicked, .searchbox .cfilter a:hover {
+    color: rgb(0, 126, 190);
+}
+
+.searchbox .cfilter .file {
+    background-position: 7px 2px;
+}
+
+.searchbox .cfilter .photo {
+    background-position: 7px -22px;
+}
+
+.searchbox .cfilter .music {
+    background-position: 7px -45px;
+}
+
+.searchbox .cfilter .book {
+    background-position: 7px -67px;
+}
+
+.searchbox .cfilter .video {
+    background-position: 7px -94px;
+}
+
+.searchbox .cfilter .games {
+    background-position: 7px -118px;
+}
+
+.searchbox .cfilter .featured_videos {
+    background-position: 7px -311px;
+}
+
+.searchbox .cfilter .archives {
+    background-position: 7px -371px;
+}
+
+.searchbox .cfilter a.file:hover, .searchbox .cfilter a.file.clicked {
+    background-position: 7px -161px;
+}
+
+.searchbox .cfilter a.photo:hover, .searchbox .cfilter a.photo.clicked {
+    background-position: 7px -185px;
+}
+
+.searchbox .cfilter a.music:hover, .searchbox .cfilter a.music.clicked {
+    background-position: 7px -208px;
+}
+
+.searchbox .cfilter a.book:hover, .searchbox .cfilter a.book.clicked {
+    background-position: 7px -230px;
+}
+
+.searchbox .cfilter a.video:hover, .searchbox .cfilter a.video.clicked {
+    background-position: 7px -257px;
+}
+
+.searchbox .cfilter a.games:hover, .searchbox .cfilter a.games.clicked {
+    background-position: 7px -280px;
+}
+
+.searchbox .cfilter a.featured_videos:hover, .searchbox .cfilter a.featured_videos.clicked {
+    background-position: 7px -340px;
+}
+
+.searchbox .cfilter a.archives:hover, .searchbox .cfilter a.archives.clicked {
+    background-position: 7px -399px;
+}
+
+.searchform_content .cfilter {
+    position: static;
+    display: block;
+    clear: both;
+}
+
+.uploader {
+    margin-top: 20px;
+    cursor: pointer;
+    border: 5px solid rgb(209, 212, 214);
+    font-size: 19px;
+    height: 108px;
+    text-align: center;
+    padding-bottom: 20px;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.uploader:hover {
+    border: 5px solid #999;
+}
+
+.uploader [class*="text-"] {
+    margin-bottom: 15px;
+}
+
+.uploader .up {
+    text-transform: uppercase;
+    color: rgb(125, 171, 194);
+    font-size: 44px;
+    display: block;
+    text-shadow: 1px 1px 0 rgb(225, 233, 239), -1px -1px 0 rgb(89, 132, 167);
+    margin: 5px auto auto;
+    padding-right: 70px;
+    width: 180px;
+}
+
+.uploader .drag {
+}
+
+.uploader .click {
+    display: none;
+}
+
+.fakefile {
+    position: relative;
+    font-size: 200px;
+    width: 1px;
+    left: -250px;
+    top: -10px;
+    height: 0!important;
+    z-index: 97;
+    opacity: 0;
+    cursor: pointer;
+    margin: 0!important;
+    line-height: 0!important;
+}
+
+.carousel-item {
+    margin-top: 20px;
+    min-height: 300px;
+}
+#toolbar{
+    margin: 20px 0 5px 0 !important;
+}
+
+#workspace{
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -80px;
+}
+
+#search{
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+
+#file-table{
+    margin: 5px 0 0 -20px;
+}
+
+.file-name{
+    background-position: 6px center;
+    background-repeat: no-repeat;
+    position: relative;
+    line-height: 18px;
+}
+
+.file-name a{
+    margin: 5px;
+}
+
+.file{
+    height: 40px;
+}
+
+#file-tools{
+    margin: 5px 0 0 5px !important;
+}
+
+.file-name .name{
+    padding: 0 50px;
+    overflow: hidden;
+    cursor: pointer;
+    display: inline-block;
+    height: 17px;
+    line-height: 17px;
+    position: relative;
+}
+
+.add-senses{
+    background-color: #9ad5f3;
+    margin-bottom: 10px;
+}
+
+#folder-browser{
+    min-height: 350px;
+}

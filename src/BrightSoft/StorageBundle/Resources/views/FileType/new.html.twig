@@ -1,0 +1,20 @@
+{% extends 'StorageBundle::layout.html.twig' %}
+
+{% block content %}
+<h1>FileType creation</h1>
+
+<form action="{{ path('filetype_create') }}" method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+    <p>
+        <button class="btn btn-primary" type="submit"><i class="icon-plus icon-white"></i>Create</button>
+    </p>
+</form>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('filetype') }}">
+            <i class="icon-list"></i> Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %}

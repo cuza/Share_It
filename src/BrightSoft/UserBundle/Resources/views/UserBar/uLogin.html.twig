@@ -1,0 +1,32 @@
+<form id="_user" method="post" action="{{ path('uBar') }}" class="no-margin"
+        {% if user.error %}
+    rel="tooltip" data-placement="left" data-original-title="Wrong User Name or Password!"
+        {% endif %}>
+    <div class="control-group no-margin {% if user.error and user.error['name'] %}error{% endif %}">
+        <div class="controls input-prepend input-append">
+            <span class="add-on"><i class="icon-user"></i></span>
+            <input name="user" type="text" placeholder="User Name" required="true" value="{{ user.name }}">
+            <a id="register" tabindex="-1" type="button" class="btn btn-warning" href="{{ path('uNew') }}"
+                    rel="tooltip" data-placement="left" data-original-title="Register!">
+                <i class="icon-plus icon-white"></i>
+            </a>
+        </div>
+    </div>
+    <div class="control-group no-margin {% if user.error and user.error['pass'] %}error{% endif %}">
+        <div class="controls input-prepend input-append">
+            <span class="add-on"><i class="icon-lock"></i></span>
+            <input name="pass" type="password" required="true" placeholder="Password">
+            <button type="submit" class="btn btn-primary"
+                    rel="tooltip" data-placement="left" data-original-title="Sing In!">
+                <i class="icon-ok icon-white"></i>
+            </button>
+            {% if user.error %}
+            <button type="button" class="btn btn-danger"
+                    rel="tooltip" data-placement="left" data-original-title="Forgotten Password?">
+                <i class="icon-question-sign icon-white"></i>
+            </button>
+            {% endif %}>
+        </div>
+    </div>
+    <input type="hidden" name="_target_path" value="{{ _target }}"/>
+</form>

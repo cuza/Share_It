@@ -1,0 +1,14 @@
+{% if ajax == '' %}
+<div id="_user-bar" class="container-fluid">
+    {% endif %}
+    {% if user.name == '' or user.error != '' %}
+        {% include "UserBundle:UserBar:uLogin.html.twig" %}
+    {% else %}
+        {% include "UserBundle:UserBar:uStatus.html.twig" %}
+    {% endif %}
+    {% if ajax == '' %}
+</div><!-- end of _user-bar-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/user/css/_user.css') }}">
+    <script type="text/javascript" src="{{ asset('bundles/user/js/_user.js') }}"></script>
+{% endif %}
+<div id="_utils"></div>

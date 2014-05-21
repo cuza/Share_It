@@ -1,0 +1,21 @@
+<li>
+    {%  if t_url == '' %}
+        {% set t_url = tree.name %}
+    {%  else %}
+        {% set t_url = [ t_url , tree.name ]|join('~') %}
+    {% endif %}
+    <a href="#" id="{{ t_url }}" data-id="{{ tree.id }}" data-context-menu="#folder-menu" data-bind="click: load"
+            {% if tree.children %}
+       role="branch" class="tree-toggle" data-toggle="branch" style="margin-left: -20px" ><i class="folder-{{ tree.icon }}"></i>
+        {% else %}
+            role="leaf"> <i class="folder-{{ tree.icon }}"></i>
+        {% endif %}
+       {{ tree.name }}</a>
+    {% if tree.children %}
+        <ul class="branch in">
+            {% for child in tree.children %}
+                {% include 'StorageBundle:Default:includes/branch.tree.html.twig' with { tree : child } %}
+            {% endfor %}
+        </ul>
+    {% endif %}
+</li>

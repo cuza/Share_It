@@ -1,0 +1,23 @@
+{% extends 'UserBundle::layout.html.twig' %}
+
+{% block content %}
+    <div class="span3 offset2 form">
+        <h1>Role creation</h1>
+
+        <form action="{{ path('role_create') }}" method="post" {{ form_enctype(form) }}>
+            {{ form_widget(form) }}
+            <p>
+                <button class="btn btn-primary" type="submit">Create</button>
+            </p>
+        </form>
+    </div>
+    <div class="span2">
+        <ul class="record_actions">
+            <li>
+                <a href="{{ path('role') }}">
+                    <i class="icon-list" style="color: #000"></i> Back to the list
+                </a>
+            </li>
+        </ul>
+    </div>
+{% endblock %}

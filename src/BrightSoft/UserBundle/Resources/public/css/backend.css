@@ -1,0 +1,114 @@
+.record_actions li {
+    margin-bottom: 5px;
+}
+
+header {
+    margin: 20px;
+}
+
+header h1 {
+    font-size: 30px;
+    line-height: 1;
+    letter-spacing: -2px;
+    color: #08C;
+}
+
+header h1 i {
+    height: 47px !important;
+    width: 60px !important;
+}
+
+.error {
+    margin: 100px;
+    text-align: center;
+    font-size: 100px;
+}
+
+.error h1 {
+    font-size: 75px;
+    line-height: 1;
+    letter-spacing: -2px;
+    color: #000;
+}
+
+.error h1 i {
+    color: #D14;
+    font-size: 120px !important;
+    height: 40px !important;
+    width: 120px !important;
+    vertical-align: middle !important;
+}
+
+.form {
+    padding: 39px 19px 14px;
+    background-color: white;
+    border: 1px solid #DDD;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.main {
+    min-height: 400px;
+}
+
+
+.pre-scrollable {
+    max-height: 100px !important;
+}
+
+html,
+body {
+    height: 100%;
+    /* The html and body elements cannot have any padding or margin. */
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    /* Negative indent footer by it's height */
+    margin: 0 auto -60px;
+}
+
+/* Set the fixed height of the footer here */
+#push,
+#footer {
+    height: 60px;
+
+}
+
+#footer {
+    text-align: center;
+    border-top: 1px solid #E5E5E5;
+    background-color: whiteSmoke;
+}
+
+#footer p {
+    margin-bottom: 0;
+    color: #777;
+}
+
+#footer-links {
+    margin: 10px 0;
+}
+
+#footer-links li {
+    display: inline;
+    padding: 0 2px;
+}
+
+#footer-links li:first-child {
+    padding-left: 0;
+}
+
+/* Lastly, apply responsive CSS fixes as necessary */
+@media (max-width: 767px) {
+    #footer {
+        margin-left: -20px;
+        margin-right: -20px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
